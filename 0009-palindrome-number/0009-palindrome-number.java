@@ -1,9 +1,14 @@
 class Solution {
     public boolean isPalindrome(int x) {
-      String st = Integer.toString(x);
-        StringBuilder s = new StringBuilder(Integer.toString(x));
-        StringBuilder rs = s.reverse();
-        String st1 = rs.toString();
-        return st.equals(st1);  
+        if (x < 0) {
+            return false;
+        }
+      int rev = 0; int y = x;
+        while (y != 0) {
+            int rem = y%10;
+            rev = rev*10+rem;
+            y = y/10;
+        }
+        return rev == x;  
     }
 }
