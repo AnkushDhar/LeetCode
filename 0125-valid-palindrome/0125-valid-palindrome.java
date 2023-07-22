@@ -3,14 +3,14 @@ class Solution {
         s = s.replaceAll("\\s", "");
         s = s.replaceAll("[^a-zA-Z0-9]", "");
         s = s.toLowerCase();
-        StringBuilder sb1 = new StringBuilder();
-        Stack<String> st = new Stack<>();
-        for (int i = 0; i < s.length(); i++) {
-            st.push(String.valueOf(s.charAt(i)));
+        int si = 0;
+        int ei = s.length()-1;
+        boolean b = true;
+        for (int i = si, j = ei; i<s.length()/2; i++, j--) {
+            if (s.charAt(i) != s.charAt(j)) {
+                return false;
+            }
         }
-        while (!st.isEmpty()) {
-            sb1.append(st.pop());
-        }
-        return s.contentEquals(sb1.toString());
+        return b;
     }
 }
